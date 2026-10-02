@@ -1,0 +1,25 @@
+No open fund to close. 
+    fund opened: authorization 55836875JF7788630 $250000.00 remaining 250000.00
+    opening again is idempotent: same authorization 55836875JF7788630
+    two guarantees reserved against ONE authorization 55836875JF7788630 | reserved 165554.00 | remaining 84446.00
+    drawn 143960.00 | PayPal authorization status PARTIALLY_CAPTURED | reserved 0.00 | remaining on the fund 106040.00
+✔ POOL: one $250,000 authorization funds several guarantees; each draws with partial captures (39553.593889ms)
+    case voided; fund authorization 55836875JF7788630 still live
+✔ POOL: void of a pool case releases only a reservation; the fund survives (11097.033317ms)
+The fund has $17,478.50 left and this guarantee needs $88,561.50. Open a larger fund. 
+    reservations accepted before refusal: 1 | refusal: 409 The fund has $17,478.50 left and this guarantee needs $88,561.50. Open a larger fund.
+✔ POOL: a guarantee larger than the free fund is refused with the amount short (14444.002878ms)
+    fund sweep, simulated day 4 -> refused REAUTHORIZATION_TOO_SOON
+✔ POOL: sweep after day 4 asks PayPal to reauthorize the fund; the real refusal is recorded (2071.752616ms)
+Close or settle the open guarantees first: $88,561.50 is still reserved. 
+    close with open reservations -> 409 Close or settle the open guarantees first: $88,561.50 is still reserved.
+    fund closed; authorization 55836875JF7788630 VOIDED
+✔ POOL: closing the fund is blocked while guarantees are open, then voids the authorization (6435.634052ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 73767.711594

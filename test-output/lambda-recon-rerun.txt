@@ -1,0 +1,12 @@
+    source: agent | turns 3 tool calls 9 | findings 6 | ms 17509
+    narrative: The patient arrived by ambulance at 02:02 with expanding neck swelling, voice changes, and airway narrowing. A vascular surgery consult was requested at 02:09. Staff paged the on-call vascular surgeon Dr. Okafor at 02:11, called with no answer at 02:14, and re-paged at 02:26. Dr. Okafor returned the call at 03:40 and spoke with the ED physician. At 03:45 the ED physician documented that Dr. Okafor would not come in and a backup surgeon was being arranged. The patient went to the OR with Dr. Reyes at 03:52.
+    not recorded: ["What occurred between 02:26 and 03:40","When or how Dr. Reyes was contacted","Who arranged for the backup surgeon","What time Dr. Reyes agreed to come in"]
+✔ RECORD RECONSTRUCTION, AGENT: flags the gap instead of filling it (19185.881036ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19347.463559

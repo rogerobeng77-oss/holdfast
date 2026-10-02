@@ -1,0 +1,39 @@
+== CloudFront https://d2xm2cdvyum4cx.cloudfront.net
+PASS  CloudFront serves the page  HTTP 200 text/html 1065 bytes
+PASS  asset assets/index-BOmlYMC0.js  HTTP 200 text/javascript 235064 bytes
+PASS  asset assets/index-E9noogTH.css  HTTP 200 text/css 23542 bytes
+PASS  bundle is wired to the deployed Function URL
+PASS  served through CloudFront  x-cache: RefreshHit from cloudfront
+
+== Lambda Function URL https://hmse6gxn43ybbd5lwqd335g7tu0bsuah.lambda-url.us-east-1.on.aws
+PASS  health  1683 ms {"ok":true,"time":"2026-10-02T02:45:02.544Z","paypal":"https://api-m.sandbox.paypal.com"}
+PASS  CORS allows the CloudFront origin  access-control-allow-origin: https://d2xm2cdvyum4cx.cloudfront.net
+PASS  config (3 scenarios, no vault token leaked)
+
+== Live flow through the deployed API (real Bedrock agent, real PayPal sandbox)
+PASS  agent sized the guarantee  source=agent amount=98106.50 toolCalls=4 turns=2 14675 ms
+PASS  authorize -> authorized  2918 ms authId=0FX69683XE2407523
+PASS  contact -> accepted  282 ms 
+PASS  document -> partially_captured  1715 ms capture 0C49337422846531K $61210.00
+PASS  discharge -> captured  2634 ms total charged $77010.00, released $21096.50
+PASS  audit narrative drafted  source=bedrock 7391 ms
+   narrative: On 2026-10-02 at 02:45:04, patient A.R. presented to St. Aldric Regional Medical Center and the ED physician requested Vascular surgery. At 02:45:22, a financial guarantee of $98,106.50 was authorized on Harbor Mutual Aid Fund's vaulted instrument through PayPal authorization 0FX69683XE2407523, valid for three days to 2026-10-05 and through 2026-10-31, and the hospital was notified of the honored commitment. At 02:45:22, Dr. M. Okafor, the on-call vascular surgeon, was contacted and provided with the guarantee information, and responded that he accepted and would be in the OR within 25 minutes. Neck exploration with direct carotid repair was completed and the patient was transferred to ICU, with procedure charges of $61,210.00 partially captured at 02:45:24. Following discharge, inpatient stay charges of $15,800.00 were captured at 02:45:26, bringing total charges to $77,010.00, with the unused $21,096.50 released to the sponsor.
+   whole flow: 30.2 s
+PASS  case persisted in DynamoDB and readable again
+
+== Void path
+PASS  transfer case voided, sponsor charged nothing  authorization 71P81798UY8882402 hold 70989.50 released 70989.50
+
+== Record reconstruction agent
+PASS  gap flagged, not filled  source=agent gap=02:26-03:40 (74 min) findings=6
+   narrative: The patient arrived by ambulance at 02:02 with expanding neck swelling, voice changes, and airway narrowing. At 02:09 a vascular surgery consult was requested. Staff paged the on-call vascular surgeon Dr. Okafor at 02:11, called at 02:14 with no answer, and re-paged at 02:26. Dr. Okafor returned the call at 03:40. At 03:45 the ED physician documented that Dr. Okafor would not come in and a backup surgeon was being arranged. The patient went to the OR with Dr. Reyes at 03:52.
+   not recorded: ["What occurred between 02:26 and 03:40","Who arranged for the backup surgeon","When Dr. Reyes was contacted","The specific reason Dr. Okafor declined to come in","What clinical interventions occurred during the wait"]
+
+== Webhooks
+PASS  webhook store readable  12 verified events, 0 rejected
+   PAYMENT.AUTHORIZATION.VOIDED VOIDED 70989.50
+   PAYMENT.AUTHORIZATION.CREATED VOIDED 70989.50
+   PAYMENT.CAPTURE.COMPLETED COMPLETED 15800.00
+   PAYMENT.CAPTURE.COMPLETED COMPLETED 61210.00
+
+ALL PASS

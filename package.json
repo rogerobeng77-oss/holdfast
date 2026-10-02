@@ -1,0 +1,2 @@
+{ "name": "holdfast", "private": true, "license": "MIT", "type": "module",
+  "scripts": { "test:sandbox": "node --test tests/paypal.sandbox.test.mjs", "test:lambda": "node --test tests/lambda.local.test.mjs", "test:e2e": "node --dns-result-order=ipv4first tests/e2e.deployed.mjs" } }

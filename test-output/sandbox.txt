@@ -1,0 +1,34 @@
+    token length 97
+✔ oauth: client credentials return a token (1053.095735ms)
+    payment token 9me21520kn045363h payer PE7HVYAQSEA96 aid.fund.demo2026@example.com usage MERCHANT
+✔ vault: the sponsor's payment token exists and is a PayPal wallet (1197.377261ms)
+    setup token 2MK02573601649140 PAYER_ACTION_REQUIRED https://www.sandbox.paypal.com/agreements/approve?approval_session_id=2MK02573601649140
+✔ vault: a new setup token is created and waits for the sponsor's one-time browser approval (1087.132297ms)
+    order 4H702202BY5502155 COMPLETED authorization 98C58712GV3608257 CREATED expires 2026-10-31T02:14:02Z
+✔ authorize: vaulted token authorizes with no buyer present (4517.717637ms)
+    both calls -> 8FX753822M8040455
+✔ authorize: same PayPal-Request-Id is idempotent (no second hold) (6229.52582ms)
+    authorization 1RY39927KN978680U capture 36A82064180822304 COMPLETED authorization now CAPTURED
+✔ capture: partial final capture charges less than the hold (5898.698924ms)
+    authorization 9E965892XY436503V -> VOIDED
+✔ void: releases the hold, sponsor charged nothing (5457.085231ms)
+    second void -> 422 PREVIOUSLY_VOIDED
+✔ void after void is rejected (a hold cannot be released twice) (4880.622261ms)
+    -> 403 PERMISSION_DENIED
+✔ bad vault id is refused by PayPal (3127.153512ms)
+    capture 1 9AS83575WH5803042 COMPLETED -> PARTIALLY_CAPTURED | capture 2 (final) 23K40191GV393963B COMPLETED -> CAPTURED
+✔ lifecycle: two-stage partial capture, then final capture releases the rest (8893.064397ms)
+    authorization after partial capture then void -> VOIDED
+✔ lifecycle: void after a partial capture releases only what is left (7425.952833ms)
+    reauthorize on day 0 -> 422 REAUTHORIZATION_TOO_SOON | A reauthorization is only allowed once from Day 4 to Day 29 since the date of the original authorization.
+✔ lifecycle: reauthorization inside the honor period is refused by PayPal (real call) (5232.922593ms)
+    capture after void -> 422 AUTHORIZATION_VOIDED
+✔ lifecycle: capturing a voided authorization is refused (5535.126243ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 60633.351108

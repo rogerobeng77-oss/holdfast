@@ -1,0 +1,30 @@
+Click-through of every interactive control on the DEPLOYED site (https://d2xm2cdvyum4cx.cloudfront.net), driven with Playwright, 2026-10-02.
+Run 1 (sections, toggles, disclosures, reconstruct):
+PASS  theme toggle cycles light -> dark -> auto
+PASS  scenario tabs: Vascular, Oral, Orthopaedic each become selected
+PASS  funding toggle: Fund pool and Per-case hold each become pressed
+PASS  disclosures open: How this was decided, PayPal calls for this case, Verified webhook events, Recent cases, How the agent decided
+PASS  Check for new events returns verified rows
+PASS  Recent cases > Open case loads a stored case and scrolls to it
+PASS  invalid JSON in the log shows an inline fix instruction ("This is not valid JSON ... Fix the syntax or choose Load sample log.")
+PASS  Load sample log restores 9 entries and clears the error
+PASS  Reconstruct record (live agent) shows "Nothing logged for 74 minutes"
+PASS  page errors: none
+Run 2 (navigation, after allowing the smooth scroll to finish):
+PASS  skip link is the first tab stop
+PASS  nav Contrast / Record / Reconstruct / PayPal / Evidence / How it works / Case each land on their section and are marked current
+PASS  hero link "Two hospitals paid ..." lands on Evidence
+Run 3 (live actions on the deployed site):
+PASS  Start case and size guarantee -> "Guarantee sized"
+PASS  Authorize guarantee -> "Commitment honoured"
+PASS  Contact on-call surgeon -> "has accepted"
+PASS  Document procedure, capture first part -> "Procedure captured"
+PASS  Document discharge, final capture -> "Settled"
+PASS  Authorize $250,000 fund -> fund opens
+PASS  Skip 4 days and reauthorize fund -> shows PayPal's REAUTHORIZATION_TOO_SOON answer
+PASS  Fund-mode Authorize guarantee -> case events show "$84,007.50 reserved against the sponsor's fund ... in 17 ms" (read back from the API)
+PASS  Void hold releases the reservation
+PASS  Close fund and release remainder -> fund closed (API: status closed)
+PASS  Vault a sponsor's PayPal account (sandbox) -> browser lands on sandbox.paypal.com (https://www.sandbox.paypal.com/pay?approval_session_id=...; it went to /pay rather than /agreements/approve because the browser already held the sandbox buyer's session)
+Earlier on localhost, same build: Run all steps (per-case and fund mode), Skip 4 days and reauthorize on a hold, Void hold, Start a new case, the API-unreachable error banner, and the Start button being disabled in fund mode until the fund is authorized.
+Not clicked: "Draft narrative now" / "Redraft with the model" (only rendered when a case has no model-drafted narrative; exercised through the API in the e2e test).

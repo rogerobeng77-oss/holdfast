@@ -1,0 +1,97 @@
+    scenarios neck-bleed,jaw,transfer | price lines 15 | pledge 1000000
+✔ health + config; vault token never leaves the server (4735.205174ms)
+    sizing source: agent | amount 98106.50 | agent turns 2 tool calls 4 | ms 23671
+      tool get_price_record {"query":"all"} -> ok
+      tool lookup_procedure_bundle {"specialty":"Vascular surgery","procedure":"carotid exploration and repair"} -> ok
+      tool check_sponsor_balance {"sponsor_id":"fund-1"} -> ok
+      tool propose_guarantee {"lines":[{"code":"99285","units":1},{"code":"00350","units":1},{"code":"35701","units":1} -> ok
+    partial capture 49T297582S6599945 61210.00 | still held 36896.50
+    PayPal authorization status: CAPTURED | total charged 77010.00 released 21096.50
+    audit source: bedrock | On 2026-10-02 at 02:35:29, patient A.R. presented to St. Aldric Regional Medical Center and the ED physician requested Vascular surgery. At ...
+✔ AGENT sizing + full lifecycle: size -> authorize -> accept -> partial capture -> final capture -> audit (51649.110966ms)
+    voided 1MP77206FD201105L hold 73082.50 charged $0.00
+✔ void exit from authorized/accepted: transfer before incision releases the whole hold (12315.455871ms)
+    charged 60750.00 | released 16242.50
+✔ void exit from partially captured: remaining hold released, earlier capture stands (12766.815517ms)
+case is sized 
+    contact before authorize -> 409 case is sized
+case is sized 
+    document before authorize -> 409 case is sized
+case is sized 
+    discharge before authorize -> 409 case is sized
+case is sized 
+    void before authorize -> 409 case is sized
+case is captured 
+    second final capture -> 409 case is captured
+✔ state machine: out-of-order calls are refused with 409 (19316.070707ms)
+    two create calls, one case: 33695dbb replayed: true
+    three concurrent authorize calls -> 61277802G2328262U statuses 200,200,200
+    fourth call replays the existing hold, no new money movement
+✔ IDEMPOTENCY: same idempotency key returns the same case; concurrent authorize makes one hold (7806.98816ms)
+    simulated day 4 -> refused REAUTHORIZATION_TOO_SOON | A reauthorization is only allowed once from Day 4 to Day 29 since the date of the original authorization.
+    simulated day 1 -> none (inside honor period)
+    capture still works after the refused reauth
+✔ REAUTHORIZATION: sweep after the honor period asks PayPal; the real refusal is recorded and the hold survives (14964.48183ms)
+    old 88268303T6655905E -> re-issued 7D429898RM654660N | event: Authorization 88268303T6655905E was VOIDED before capture. Re-issued $76,992.50 from the vaulted token as 7D429898RM6546
+    final capture succeeded on the new hold: 66950.00
+✔ EXPIRED/LOST AUTHORIZATION: a hold PayPal no longer honours is re-issued from the vault before capture (20064.800645ms)
+    replaying delivered event WH-5H817763YH7503130-9HD74771VA579593J PAYMENT.AUTHORIZATION.CREATED
+    tampered -> {"stored":false,"verifyStatus":"FAILURE"}
+    forged, no valid headers -> {"stored":false,"verifyStatus":"verify error: PayPal POST /v1/notifications/verify-webhook-signature 400 Required field cannot be blank: Invalid d"}
+    genuine replay -> {"stored":true,"duplicate":true,"verifyStatus":"SUCCESS"}
+    rejected-delivery counter rose by 2
+    gap: 02:26 to 03:40 74 min | repeated contacts: 02:11, 02:14, 02:26 | unplaceable: E8
+    grounded -> {"ok":true,"badTimes":[],"badDurations":[]} | invented -> {"ok":false,"badTimes":["03:05"],"badDurations":["45"]}
+✔ WEBHOOK SIGNATURE: a tampered payload is rejected, the genuine one is accepted, replays store once (6546.722511ms)
+✔ RECORD RECONSTRUCTION, deterministic part: order, gap, repeats and unplaceable entries are found by code (1.632099ms)
+✔ RECORD RECONSTRUCTION, grounding check rejects an invented time and an invented duration (0.480578ms)
+    source: agent | turns 3 tool calls 9 | findings 6 | ms 50906
+    narrative: The patient arrived by ambulance at 02:02 with expanding neck swelling, voice changing, and airway narrowing noted. A vascular surgery consult was requested at 02:09. A page was sent to on-call vascular surgeon Dr. Okafor at 02:11, a call was placed at 02:14 with no answer, and a page was re-sent at 02:26. Dr. Okafor returned the call at 03:40, and at 03:45 the ED physician documented that Dr. Okafor would not come in and a backup surgeon was being arranged. The patient went to the OR with Dr. Reyes (backup vascular) at 03:52.
+    not recorded: ["What occurred between 02:26 and 03:40 during the 74-minute gap","When or how Dr. Reyes was contacted","The content of the conversation between Dr. Okafor and the ED physician at 03:40","Who arranged for the backup surgeon","Clinical assessments or interventions between 02:02 and 03:52"]
+unknown scenario 
+✖ RECORD RECONSTRUCTION, AGENT: flags the gap instead of filling it (51392.37891ms)
+case not found 
+at most 40 entries 
+✔ bad input: unknown scenario 400, unknown case 404, unknown route 404, oversize reconstruct 400 (361.43826ms)
+No open fund to close. 
+    fund opened: authorization 37C955816U278510J $250000.00 remaining 250000.00
+    opening again is idempotent: same authorization 37C955816U278510J
+    two guarantees reserved against ONE authorization 37C955816U278510J | reserved 165554.00 | remaining 84446.00
+    drawn 143960.00 | PayPal authorization status PARTIALLY_CAPTURED | reserved 0.00 | remaining on the fund 106040.00
+✔ POOL: one $250,000 authorization funds several guarantees; each draws with partial captures (40375.3422ms)
+    case voided; fund authorization 37C955816U278510J still live
+✔ POOL: void of a pool case releases only a reservation; the fund survives (8324.934376ms)
+The fund has $17,478.50 left and this guarantee needs $88,561.50. Open a larger fund. 
+    reservations accepted before refusal: 1 | refusal: 409 The fund has $17,478.50 left and this guarantee needs $88,561.50. Open a larger fund.
+✔ POOL: a guarantee larger than the free fund is refused with the amount short (11812.518309ms)
+    fund sweep, simulated day 4 -> refused REAUTHORIZATION_TOO_SOON
+✔ POOL: sweep after day 4 asks PayPal to reauthorize the fund; the real refusal is recorded (3260.578587ms)
+Close or settle the open guarantees first: $88,561.50 is still reserved. 
+    close with open reservations -> 409 Close or settle the open guarantees first: $88,561.50 is still reserved.
+    fund closed; authorization 37C955816U278510J VOIDED
+✔ POOL: closing the fund is blocked while guarantees are open, then voids the authorization (8690.46331ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 17
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 274557.677641
+
+✖ failing tests:
+
+test at tests/lambda.local.test.mjs:129:1
+✖ RECORD RECONSTRUCTION, AGENT: flags the gap instead of filling it (51392.37891ms)
+  AssertionError [ERR_ASSERTION]: says the gap is unrecorded
+      at TestContext.<anonymous> (file:///home/rogerkorantenng/dev/Hackathons/paypal/projects/guarantee/tests/lambda.local.test.mjs:138:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

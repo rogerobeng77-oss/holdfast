@@ -1,0 +1,1700 @@
+{
+ "recordedAt": "2026-10-02T02:26:23.762Z",
+ "config": {
+  "hospital": {
+   "id": "sar",
+   "name": "St. Aldric Regional Medical Center",
+   "note": "fictional hospital"
+  },
+  "scenarios": [
+   {
+    "id": "neck-bleed",
+    "title": "Bleeding neck hematoma, airway narrowing",
+    "specialty": "Vascular surgery",
+    "patient": "A.R., 58 (fictional)",
+    "presentation": "Arrives by ambulance with an expanding neck hematoma from an actively bleeding carotid injury; the airway is narrowing. The ED physician has documented the emergency condition and requested the on-call vascular surgeon for operative exploration and repair.",
+    "onCall": "Dr. M. Okafor, on-call vascular surgeon (fictional)",
+    "onCallAccepts": true,
+    "acceptNote": "Accepts. Leaving home now, in the OR within 25 minutes.",
+    "procedureNote": "Neck exploration with direct carotid repair completed. Airway secured. Transferred to ICU.",
+    "outcome": "capture",
+    "without": {
+     "figure": 100000,
+     "who": "Spartanburg Medical Center",
+     "when": "conduct May 2024, settled 12 November 2025",
+     "finding": "An actively bleeding carotid hematoma was narrowing the patient's airway. The on-call vascular surgeon would not come in.",
+     "note": "Surgeons were available.",
+     "source": "https://oig.hhs.gov/fraud/enforcement/"
+    },
+    "hasStay": true
+   },
+   {
+    "id": "jaw",
+    "title": "Bilateral jaw fractures",
+    "specialty": "Oral and maxillofacial surgery",
+    "patient": "D.W., 31 (fictional)",
+    "presentation": "Arrives with bilateral mandible fractures after an assault. The ED physician has documented the emergency condition and requested the on-call oral and maxillofacial surgeon for open reduction and fixation.",
+    "onCall": "Dr. S. Lindqvist, on-call oral and maxillofacial surgeon (fictional)",
+    "onCallAccepts": true,
+    "acceptNote": "Accepts. Booking the OR for first available slot tonight.",
+    "procedureNote": "Open reduction and internal fixation of bilateral mandible fractures completed. Admitted to the surgical ward.",
+    "outcome": "capture",
+    "without": {
+     "figure": 150000,
+     "who": "Flowers Hospital, Dothan, Alabama",
+     "when": "conduct May 2021, settled 25 July 2025",
+     "finding": "The on-call oral and maxillofacial surgeon declined a patient with bilateral jaw fractures.",
+     "note": "Surgeons were available.",
+     "source": "https://oig.hhs.gov/fraud/enforcement/"
+    },
+    "hasStay": true
+   },
+   {
+    "id": "transfer",
+    "title": "Femur fracture, patient transferred before incision",
+    "specialty": "Orthopaedic surgery",
+    "patient": "L.T., 44 (fictional)",
+    "presentation": "Arrives with an open femoral shaft fracture. The ED physician has documented the emergency condition and requested the on-call orthopaedic surgeon. Before incision, associated injuries lead the treating physicians to transfer the patient to a Level I trauma center that accepts the transfer.",
+    "onCall": "Dr. P. Anand, on-call orthopaedic surgeon (fictional)",
+    "onCallAccepts": true,
+    "acceptNote": "Accepts. Preparing the OR while the transfer is confirmed.",
+    "expected": [
+     [
+      "99285",
+      1
+     ],
+     [
+      "01230",
+      1
+     ],
+     [
+      "27506",
+      1
+     ],
+     [
+      "IMPL-NAIL",
+      1
+     ],
+     [
+      "OR-HR",
+      3
+     ],
+     [
+      "ADM-DAY",
+      3
+     ]
+    ],
+    "procedureNote": "Procedure not performed. Patient transferred to a Level I trauma center by physician decision before incision.",
+    "outcome": "void",
+    "without": null,
+    "hasStay": false
+   }
+  ],
+  "prices": [
+   {
+    "code": "99285",
+    "desc": "Emergency department visit, high severity",
+    "unit": "visit",
+    "price": 2150
+   },
+   {
+    "code": "00350",
+    "desc": "Anesthesia, major vessels of neck",
+    "unit": "case",
+    "price": 4800
+   },
+   {
+    "code": "35701",
+    "desc": "Exploration of artery, neck, without repair",
+    "unit": "procedure",
+    "price": 14200
+   },
+   {
+    "code": "35201",
+    "desc": "Direct repair of blood vessel, neck",
+    "unit": "procedure",
+    "price": 21900
+   },
+   {
+    "code": "21470",
+    "desc": "Open treatment, complicated mandibular fracture, multiple approaches",
+    "unit": "procedure",
+    "price": 27400
+   },
+   {
+    "code": "21462",
+    "desc": "Open treatment, mandibular fracture, with interdental fixation",
+    "unit": "procedure",
+    "price": 16800
+   },
+   {
+    "code": "00192",
+    "desc": "Anesthesia, radical surgery of facial bones",
+    "unit": "case",
+    "price": 4300
+   },
+   {
+    "code": "27506",
+    "desc": "Intramedullary nailing, femoral shaft fracture",
+    "unit": "procedure",
+    "price": 23800
+   },
+   {
+    "code": "01230",
+    "desc": "Anesthesia, open procedure on upper leg bones",
+    "unit": "case",
+    "price": 3900
+   },
+   {
+    "code": "OR-HR",
+    "desc": "Operating room time, per hour",
+    "unit": "hour",
+    "price": 5200
+   },
+   {
+    "code": "ICU-DAY",
+    "desc": "Intensive care bed, per day",
+    "unit": "day",
+    "price": 7900
+   },
+   {
+    "code": "ADM-DAY",
+    "desc": "Surgical ward bed, per day",
+    "unit": "day",
+    "price": 3100
+   },
+   {
+    "code": "IMPL-FIX",
+    "desc": "Fixation plates and screws, implant set",
+    "unit": "set",
+    "price": 6100
+   },
+   {
+    "code": "IMPL-NAIL",
+    "desc": "Intramedullary nail implant",
+    "unit": "set",
+    "price": 8800
+   },
+   {
+    "code": "BLOOD-U",
+    "desc": "Blood product, per unit",
+    "unit": "unit",
+    "price": 640
+   }
+  ],
+  "messySample": [
+   {
+    "id": "E7",
+    "source": "ED physician note",
+    "time": "2026-03-14T03:45:00-05:00",
+    "kind": "note",
+    "text": "Per Dr. Okafor on the phone, will not come in tonight. Arranging backup surgeon."
+   },
+   {
+    "id": "E1",
+    "source": "EHR triage",
+    "time": "2026-03-14T02:02:00-05:00",
+    "kind": "clinical",
+    "text": "Arrived by ambulance. Expanding neck swelling, voice changing. Airway narrowing noted."
+   },
+   {
+    "id": "E3",
+    "source": "Pager log",
+    "time": "2026-03-14T02:11:00-05:00",
+    "kind": "contact",
+    "person": "Dr. Okafor",
+    "direction": "outbound",
+    "text": "Page sent to on-call vascular surgeon. Delivered."
+   },
+   {
+    "id": "E2",
+    "source": "ED physician note",
+    "time": "2026-03-14T02:09:00-05:00",
+    "kind": "clinical",
+    "text": "Vascular surgery consult requested."
+   },
+   {
+    "id": "E4",
+    "source": "Phone log",
+    "time": "2026-03-14T02:14:00-05:00",
+    "kind": "contact",
+    "person": "Dr. Okafor",
+    "direction": "outbound",
+    "text": "Call placed. No answer."
+   },
+   {
+    "id": "E5",
+    "source": "Pager log",
+    "time": "2026-03-14T02:26:00-05:00",
+    "kind": "contact",
+    "person": "Dr. Okafor",
+    "direction": "outbound",
+    "text": "Page re-sent. Delivered."
+   },
+   {
+    "id": "E6",
+    "source": "Switchboard",
+    "time": "2026-03-14T03:40:00-05:00",
+    "kind": "contact",
+    "person": "Dr. Okafor",
+    "direction": "inbound",
+    "text": "Dr. Okafor returned call; connected to ED physician."
+   },
+   {
+    "id": "E8",
+    "source": "Nurse recollection, written later",
+    "time": null,
+    "kind": "note",
+    "text": "I think someone called the other surgeon around three? Not sure who."
+   },
+   {
+    "id": "E9",
+    "source": "OR board",
+    "time": "2026-03-14T03:52:00-05:00",
+    "kind": "clinical",
+    "text": "Patient to OR with Dr. Reyes (backup vascular)."
+   }
+  ],
+  "pool": {
+   "drawn": "66950.00",
+   "authCaptured": "66950.00",
+   "orderId": "1YF11301CE7062004",
+   "generation": 1,
+   "created": "2026-10-02T02:08:06Z",
+   "reauths": [],
+   "authAmount": "250000.00",
+   "sponsorName": "Harbor Mutual Aid Fund",
+   "amount": "250000.00",
+   "sponsorId": "fund-1",
+   "log": [
+    {
+     "t": "2026-10-02T02:08:07.485Z",
+     "text": "Fund of $250,000.00 authorized once on Harbor Mutual Aid Fund's vaulted instrument (7E341995HF9714008, 2636 ms)."
+    },
+    {
+     "t": "2026-10-02T02:08:42.107Z",
+     "text": "Case 15a44975: partial capture 2WX26154PJ2009354 of $60,750.00 (final_capture false). Fund drawn to $60,750.00."
+    },
+    {
+     "text": "Case 15a44975: partial capture 8J433243CC085931P of $6,200.00 (final_capture false). Fund drawn to $66,950.00.",
+     "t": "2026-10-02T02:08:45.999Z"
+    },
+    {
+     "t": "2026-10-02T02:23:22.384Z",
+     "text": "Fund closed. Authorization 7E341995HF9714008 voided; $183,050.00 released to the sponsor. Total drawn $66,950.00."
+    }
+   ],
+   "reissues": 0,
+   "authId": "7E341995HF9714008",
+   "honorUntil": "2026-10-05T02:08:06.000Z",
+   "status": "closed",
+   "expires": "2026-10-31T02:08:06Z",
+   "reserved": "0.00",
+   "remaining": "183050.00",
+   "authLeft": "183050.00"
+  },
+  "sponsors": [
+   {
+    "id": "fund-1",
+    "name": "Harbor Mutual Aid Fund",
+    "kind": "mutual-aid group",
+    "perCaseCap": 120000,
+    "pledge": 1000000,
+    "vaulted": true,
+    "openHolds": "0.00"
+   }
+  ]
+ },
+ "cases": {
+  "neck-bleed": {
+   "requests": [
+    {
+     "t": "2026-10-02T02:25:12.522Z",
+     "id": "hf-af8e9b36-auth",
+     "op": "authorize"
+    },
+    {
+     "t": "2026-10-02T02:25:17.279Z",
+     "op": "capture-procedure",
+     "id": "hf-af8e9b36-capture-procedure-0"
+    },
+    {
+     "op": "capture-discharge",
+     "id": "hf-af8e9b36-capture-discharge-0",
+     "t": "2026-10-02T02:25:19.463Z"
+    }
+   ],
+   "patient": "A.R., 58 (fictional)",
+   "id": "af8e9b36",
+   "events": [
+    {
+     "t": "2026-10-02T02:25:04.804Z",
+     "text": "Patient A.R., 58 (fictional) presented to St. Aldric Regional Medical Center. ED physician documented the emergency condition and requested Vascular surgery.",
+     "type": "presented"
+    },
+    {
+     "text": "Guarantee sized at $98,106.50 from 8 published price lines plus 15% contingency by the sizing agent (4 tool calls over 2 turns) in 6062 ms.",
+     "t": "2026-10-02T02:25:10.992Z",
+     "type": "sized"
+    },
+    {
+     "text": "Guarantee of $98,106.50 authorized on Harbor Mutual Aid Fund's vaulted instrument in 2577 ms. PayPal authorization 7WW74890S9904433Y. Funds guaranteed by PayPal for 3 days (to 2026-10-05), authorization valid to 2026-10-31. Hospital notified of honoured commitment.",
+     "t": "2026-10-02T02:25:15.099Z",
+     "type": "authorized"
+    },
+    {
+     "t": "2026-10-02T02:25:16.382Z",
+     "type": "oncall_contacted",
+     "text": "On-call specialist contacted: Dr. M. Okafor, on-call vascular surgeon (fictional). Honoured guarantee 7WW74890S9904433Y of $98,106.50 shared with the request."
+    },
+    {
+     "text": "Dr. M. Okafor, on-call vascular surgeon (fictional) responded: \"Accepts. Leaving home now, in the OR within 25 minutes.\" (scripted demo response)",
+     "type": "oncall_response",
+     "t": "2026-10-02T02:25:16.382Z"
+    },
+    {
+     "text": "Procedure documented: Neck exploration with direct carotid repair completed. Airway secured. Transferred to ICU. Procedure lines total $61,210.00.",
+     "type": "documented",
+     "t": "2026-10-02T02:25:16.834Z"
+    },
+    {
+     "text": "Partial capture 5P67490083689543D for $61,210.00 (not final). $36,896.50 of the hold remains open for the inpatient stay.",
+     "t": "2026-10-02T02:25:18.544Z",
+     "type": "partially_captured"
+    },
+    {
+     "text": "Discharge documented. Inpatient stay lines total $15,800.00.",
+     "type": "documented",
+     "t": "2026-10-02T02:25:18.973Z"
+    },
+    {
+     "type": "captured",
+     "text": "Final capture 9EL91466R33566500 for $15,800.00. Total charged $77,010.00; the unused $21,096.50 of the hold is released to the sponsor.",
+     "t": "2026-10-02T02:25:21.168Z"
+    }
+   ],
+   "mode": "hold",
+   "captures": [
+    {
+     "lines": [
+      {
+       "unitPrice": 2150,
+       "desc": "Emergency department visit, high severity",
+       "line": 2150,
+       "code": "99285",
+       "units": 1
+      },
+      {
+       "code": "00350",
+       "line": 4800,
+       "unitPrice": 4800,
+       "units": 1,
+       "desc": "Anesthesia, major vessels of neck"
+      },
+      {
+       "unitPrice": 14200,
+       "line": 14200,
+       "desc": "Exploration of artery, neck, without repair",
+       "units": 1,
+       "code": "35701"
+      },
+      {
+       "desc": "Direct repair of blood vessel, neck",
+       "unitPrice": 21900,
+       "code": "35201",
+       "units": 1,
+       "line": 21900
+      },
+      {
+       "unitPrice": 5200,
+       "units": 3,
+       "code": "OR-HR",
+       "desc": "Operating room time, per hour",
+       "line": 15600
+      },
+      {
+       "units": 4,
+       "code": "BLOOD-U",
+       "line": 2560,
+       "desc": "Blood product, per unit",
+       "unitPrice": 640
+      }
+     ],
+     "amount": "61210.00",
+     "id": "5P67490083689543D",
+     "ms": 1264,
+     "final": false,
+     "stage": "procedure",
+     "status": "COMPLETED"
+    },
+    {
+     "stage": "discharge",
+     "id": "9EL91466R33566500",
+     "amount": "15800.00",
+     "final": true,
+     "status": "COMPLETED",
+     "ms": 1705,
+     "lines": [
+      {
+       "line": 15800,
+       "units": 2,
+       "code": "ICU-DAY",
+       "unitPrice": 7900,
+       "desc": "Intensive care bed, per day"
+      }
+     ]
+    }
+   ],
+   "capture": {
+    "lines": [
+     {
+      "desc": "Emergency department visit, high severity",
+      "line": 2150,
+      "units": 1,
+      "code": "99285",
+      "unitPrice": 2150
+     },
+     {
+      "line": 4800,
+      "desc": "Anesthesia, major vessels of neck",
+      "unitPrice": 4800,
+      "code": "00350",
+      "units": 1
+     },
+     {
+      "code": "35701",
+      "line": 14200,
+      "desc": "Exploration of artery, neck, without repair",
+      "units": 1,
+      "unitPrice": 14200
+     },
+     {
+      "unitPrice": 21900,
+      "code": "35201",
+      "units": 1,
+      "desc": "Direct repair of blood vessel, neck",
+      "line": 21900
+     },
+     {
+      "line": 15600,
+      "code": "OR-HR",
+      "desc": "Operating room time, per hour",
+      "units": 3,
+      "unitPrice": 5200
+     },
+     {
+      "unitPrice": 640,
+      "desc": "Blood product, per unit",
+      "code": "BLOOD-U",
+      "line": 2560,
+      "units": 4
+     },
+     {
+      "line": 15800,
+      "desc": "Intensive care bed, per day",
+      "code": "ICU-DAY",
+      "unitPrice": 7900,
+      "units": 2
+     }
+    ],
+    "ms": 2969,
+    "parts": 2,
+    "released": "21096.50",
+    "id": "5P67490083689543D + 9EL91466R33566500",
+    "amount": "77010.00",
+    "status": "COMPLETED"
+   },
+   "sizing": {
+    "agent": {
+     "turns": 2,
+     "toolCalls": 4,
+     "trace": [
+      {
+       "ms": 1,
+       "output": {
+        "truncated": "{\"matches\":[{\"code\":\"99285\",\"description\":\"Emergency department visit, high severity\",\"per\":\"visit\",\"standard_charge_usd\":2150},{\"code\":\"00350\",\"description\":\"Anesthesia, major vessels of neck\",\"per\":\"case\",\"standard_charge_usd\":4800},{\"code\":\"35701\",\"description\":\"Exploration of artery, neck, without repair\",\"per\":\"procedure\",\"standard_charge_usd\":14200},{\"code\":\"35201\",\"description\":\"Direct repair of blood vessel, neck\",\"per\":\"procedure\",\"standard_charge_usd\":21900},{\"code\":\"21470\",\"description\":\"Open treatment, complicated mandibular fracture, multiple approaches\",\"per\":\"procedure\",\"standard_charge_usd\":27400},{\"code\":\"21462\",\"description\":\"Open treatment, mandibular fracture, with interd…"
+       },
+       "kind": "tool",
+       "input": {
+        "query": "all"
+       },
+       "ok": true,
+       "turn": 1,
+       "name": "get_price_record"
+      },
+      {
+       "kind": "tool",
+       "ok": true,
+       "output": {
+        "truncated": "{\"found\":true,\"bundle\":\"vascular\",\"lines\":[{\"code\":\"99285\",\"min_units\":1,\"max_units\":1,\"description\":\"Emergency department visit, high severity\"},{\"code\":\"00350\",\"min_units\":1,\"max_units\":1,\"description\":\"Anesthesia, major vessels of neck\"},{\"code\":\"35701\",\"min_units\":1,\"max_units\":1,\"description\":\"Exploration of artery, neck, without repair\"},{\"code\":\"35201\",\"min_units\":0,\"max_units\":1,\"description\":\"Direct repair of blood vessel, neck\"},{\"code\":\"OR-HR\",\"min_units\":3,\"max_units\":5,\"description\":\"Operating room time, per hour\"},{\"code\":\"BLOOD-U\",\"min_units\":2,\"max_units\":8,\"description\":\"Blood product, per unit\"},{\"code\":\"ICU-DAY\",\"min_units\":1,\"max_units\":3,\"description\":\"Intensive care bed…"
+       },
+       "name": "lookup_procedure_bundle",
+       "input": {
+        "specialty": "Vascular surgery",
+        "procedure": "carotid exploration and repair"
+       },
+       "turn": 1,
+       "ms": 0
+      },
+      {
+       "name": "check_sponsor_balance",
+       "kind": "tool",
+       "input": {
+        "sponsor_id": "fund-1"
+       },
+       "ok": true,
+       "ms": 0,
+       "turn": 1,
+       "output": {
+        "sponsor": "Harbor Mutual Aid Fund",
+        "pledge_usd": 1000000,
+        "open_holds_usd": "0.00",
+        "per_case_limit_usd": 120000,
+        "remaining_usd": "1000000.00"
+       }
+      },
+      {
+       "ok": true,
+       "output": {
+        "subtotal_usd": "85310.00",
+        "issues": [],
+        "ok": true,
+        "total_usd": "98106.50",
+        "contingency_pct": 15
+       },
+       "turn": 2,
+       "name": "propose_guarantee",
+       "kind": "tool",
+       "input": {
+        "lines": [
+         {
+          "units": 1,
+          "code": "99285"
+         },
+         {
+          "units": 1,
+          "code": "00350"
+         },
+         {
+          "code": "35701",
+          "units": 1
+         },
+         {
+          "code": "35201",
+          "units": 1
+         },
+         {
+          "units": 4,
+          "code": "OR-HR"
+         },
+         {
+          "units": 4,
+          "code": "BLOOD-U"
+         },
+         {
+          "code": "ICU-DAY",
+          "units": 2
+         },
+         {
+          "code": "ADM-DAY",
+          "units": 1
+         }
+        ],
+        "rationale": "Actively bleeding carotid with airway compromise requires exploration and repair, 4 OR hours, transfusion, 2 ICU days, 1 ward day.",
+        "contingency_pct": 15
+       },
+       "ms": 0
+      }
+     ],
+     "stop": "done"
+    },
+    "lines": [
+     {
+      "units": 1,
+      "code": "99285",
+      "line": 2150,
+      "unitPrice": 2150,
+      "desc": "Emergency department visit, high severity"
+     },
+     {
+      "desc": "Anesthesia, major vessels of neck",
+      "line": 4800,
+      "code": "00350",
+      "units": 1,
+      "unitPrice": 4800
+     },
+     {
+      "unitPrice": 14200,
+      "code": "35701",
+      "units": 1,
+      "desc": "Exploration of artery, neck, without repair",
+      "line": 14200
+     },
+     {
+      "unitPrice": 21900,
+      "code": "35201",
+      "line": 21900,
+      "units": 1,
+      "desc": "Direct repair of blood vessel, neck"
+     },
+     {
+      "units": 4,
+      "line": 20800,
+      "unitPrice": 5200,
+      "desc": "Operating room time, per hour",
+      "code": "OR-HR"
+     },
+     {
+      "code": "BLOOD-U",
+      "units": 4,
+      "desc": "Blood product, per unit",
+      "line": 2560,
+      "unitPrice": 640
+     },
+     {
+      "code": "ICU-DAY",
+      "line": 15800,
+      "unitPrice": 7900,
+      "units": 2,
+      "desc": "Intensive care bed, per day"
+     },
+     {
+      "desc": "Surgical ward bed, per day",
+      "units": 1,
+      "unitPrice": 3100,
+      "line": 3100,
+      "code": "ADM-DAY"
+     }
+    ],
+    "ms": 6062,
+    "rationale": "Actively bleeding carotid with airway compromise requires exploration and repair, 4 OR hours, transfusion, 2 ICU days, 1 ward day.",
+    "balance": {
+     "pledge": 1000000,
+     "openHolds": "0.00"
+    },
+    "source": "agent",
+    "subtotal": "85310.00",
+    "contingencyPct": 15,
+    "error": null,
+    "model": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+    "amount": "98106.50"
+   },
+   "state": "captured",
+   "scenarioId": "neck-bleed",
+   "auth": {
+    "expires": "2026-10-31T02:25:14Z",
+    "honorUntil": "2026-10-05T02:25:14.000Z",
+    "authId": "7WW74890S9904433Y",
+    "ms": 2577,
+    "amount": "98106.50",
+    "reauths": [],
+    "created": "2026-10-02T02:25:14Z",
+    "status": "PARTIALLY_CAPTURED",
+    "orderId": "8E419823NX715312T"
+   },
+   "sponsorName": "Harbor Mutual Aid Fund",
+   "sponsorId": "fund-1",
+   "created": "2026-10-02T02:25:04.804Z",
+   "hospital": "St. Aldric Regional Medical Center",
+   "audit": {
+    "text": "On 2026-10-02 at 02:25:04, patient A.R. presented to St. Aldric Regional Medical Center and the ED physician requested Vascular surgery. At 02:25:15, a guarantee of $98,106.50 was authorized on Harbor Mutual Aid Fund's vaulted instrument under PayPal authorization 7WW74890S9904433Y, with funds guaranteed for three days to 2026-10-05 and authorization valid to 2026-10-31. At 02:25:16, Dr. M. Okafor, the on-call vascular surgeon, was contacted and responded \"Accepts. Leaving home now, in the OR within 25 minutes.\" The procedure was documented as completed, followed by discharge documentation, with partial capture of $61,210.00 at 02:25:18 and final capture of $15,800.00 at 02:25:21, totaling $77,010.00 charged against the guarantee. The unused portion of $21,096.50 was released to the sponsor.",
+    "source": "bedrock",
+    "ms": 5017,
+    "key": 9
+   }
+  },
+  "jaw": {
+   "hospital": "St. Aldric Regional Medical Center",
+   "id": "a481a45d",
+   "mode": "hold",
+   "scenarioId": "jaw",
+   "sponsorName": "Harbor Mutual Aid Fund",
+   "sizing": {
+    "lines": [
+     {
+      "units": 1,
+      "line": 2150,
+      "unitPrice": 2150,
+      "desc": "Emergency department visit, high severity",
+      "code": "99285"
+     },
+     {
+      "line": 4300,
+      "units": 1,
+      "unitPrice": 4300,
+      "desc": "Anesthesia, radical surgery of facial bones",
+      "code": "00192"
+     },
+     {
+      "unitPrice": 27400,
+      "line": 27400,
+      "units": 1,
+      "desc": "Open treatment, complicated mandibular fracture, multiple approaches",
+      "code": "21470"
+     },
+     {
+      "code": "OR-HR",
+      "line": 20800,
+      "units": 4,
+      "unitPrice": 5200,
+      "desc": "Operating room time, per hour"
+     },
+     {
+      "code": "IMPL-FIX",
+      "units": 2,
+      "line": 12200,
+      "unitPrice": 6100,
+      "desc": "Fixation plates and screws, implant set"
+     },
+     {
+      "line": 6200,
+      "units": 2,
+      "desc": "Surgical ward bed, per day",
+      "code": "ADM-DAY",
+      "unitPrice": 3100
+     }
+    ],
+    "model": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+    "subtotal": "73050.00",
+    "balance": {
+     "openHolds": "0.00",
+     "pledge": 1000000
+    },
+    "error": null,
+    "amount": "84007.50",
+    "agent": {
+     "trace": [
+      {
+       "output": {
+        "truncated": "{\"matches\":[{\"code\":\"99285\",\"description\":\"Emergency department visit, high severity\",\"per\":\"visit\",\"standard_charge_usd\":2150},{\"code\":\"00350\",\"description\":\"Anesthesia, major vessels of neck\",\"per\":\"case\",\"standard_charge_usd\":4800},{\"code\":\"35701\",\"description\":\"Exploration of artery, neck, without repair\",\"per\":\"procedure\",\"standard_charge_usd\":14200},{\"code\":\"35201\",\"description\":\"Direct repair of blood vessel, neck\",\"per\":\"procedure\",\"standard_charge_usd\":21900},{\"code\":\"21470\",\"description\":\"Open treatment, complicated mandibular fracture, multiple approaches\",\"per\":\"procedure\",\"standard_charge_usd\":27400},{\"code\":\"21462\",\"description\":\"Open treatment, mandibular fracture, with interd…"
+       },
+       "ok": true,
+       "kind": "tool",
+       "turn": 1,
+       "input": {
+        "query": "all"
+       },
+       "ms": 0,
+       "name": "get_price_record"
+      },
+      {
+       "input": {
+        "specialty": "Oral and maxillofacial surgery",
+        "procedure": "open reduction and fixation bilateral mandible fractures"
+       },
+       "kind": "tool",
+       "ms": 1,
+       "output": {
+        "truncated": "{\"found\":true,\"bundle\":\"omfs\",\"lines\":[{\"code\":\"99285\",\"min_units\":1,\"max_units\":1,\"description\":\"Emergency department visit, high severity\"},{\"code\":\"00192\",\"min_units\":1,\"max_units\":1,\"description\":\"Anesthesia, radical surgery of facial bones\"},{\"code\":\"21462\",\"min_units\":0,\"max_units\":1,\"description\":\"Open treatment, mandibular fracture, with interdental fixation\"},{\"code\":\"21470\",\"min_units\":0,\"max_units\":1,\"description\":\"Open treatment, complicated mandibular fracture, multiple approaches\"},{\"code\":\"OR-HR\",\"min_units\":3,\"max_units\":5,\"description\":\"Operating room time, per hour\"},{\"code\":\"IMPL-FIX\",\"min_units\":1,\"max_units\":2,\"description\":\"Fixation plates and screws, implant set\"},{\"co…"
+       },
+       "turn": 1,
+       "ok": true,
+       "name": "lookup_procedure_bundle"
+      },
+      {
+       "ok": true,
+       "output": {
+        "per_case_limit_usd": 120000,
+        "open_holds_usd": "0.00",
+        "pledge_usd": 1000000,
+        "remaining_usd": "1000000.00",
+        "sponsor": "Harbor Mutual Aid Fund"
+       },
+       "ms": 0,
+       "name": "check_sponsor_balance",
+       "turn": 1,
+       "input": {
+        "sponsor_id": "fund-1"
+       },
+       "kind": "tool"
+      },
+      {
+       "ms": 1,
+       "turn": 2,
+       "ok": true,
+       "input": {
+        "lines": [
+         {
+          "units": 1,
+          "code": "99285"
+         },
+         {
+          "code": "00192",
+          "units": 1
+         },
+         {
+          "units": 1,
+          "code": "21470"
+         },
+         {
+          "code": "OR-HR",
+          "units": 4
+         },
+         {
+          "code": "IMPL-FIX",
+          "units": 2
+         },
+         {
+          "units": 2,
+          "code": "ADM-DAY"
+         }
+        ],
+        "contingency_pct": 15,
+        "rationale": "Bilateral mandible fractures require complicated approach (21470), 4 OR hours, 2 fixation sets, 48-hour ward stay with anesthesia and ED visit."
+       },
+       "output": {
+        "ok": true,
+        "total_usd": "84007.50",
+        "subtotal_usd": "73050.00",
+        "contingency_pct": 15,
+        "issues": []
+       },
+       "kind": "tool",
+       "name": "propose_guarantee"
+      }
+     ],
+     "stop": "done",
+     "toolCalls": 4,
+     "turns": 2
+    },
+    "ms": 6269,
+    "contingencyPct": 15,
+    "source": "agent",
+    "rationale": "Bilateral mandible fractures require complicated approach (21470), 4 OR hours, 2 fixation sets, 48-hour ward stay with anesthesia and ED visit."
+   },
+   "patient": "D.W., 31 (fictional)",
+   "capture": {
+    "amount": "66950.00",
+    "released": "17057.50",
+    "ms": 3698,
+    "id": "25887581915951641 + 3UV76060UJ098143K",
+    "lines": [
+     {
+      "unitPrice": 2150,
+      "desc": "Emergency department visit, high severity",
+      "line": 2150,
+      "units": 1,
+      "code": "99285"
+     },
+     {
+      "units": 1,
+      "desc": "Anesthesia, radical surgery of facial bones",
+      "unitPrice": 4300,
+      "code": "00192",
+      "line": 4300
+     },
+     {
+      "units": 1,
+      "line": 27400,
+      "desc": "Open treatment, complicated mandibular fracture, multiple approaches",
+      "unitPrice": 27400,
+      "code": "21470"
+     },
+     {
+      "line": 20800,
+      "units": 4,
+      "code": "OR-HR",
+      "desc": "Operating room time, per hour",
+      "unitPrice": 5200
+     },
+     {
+      "unitPrice": 6100,
+      "line": 6100,
+      "code": "IMPL-FIX",
+      "units": 1,
+      "desc": "Fixation plates and screws, implant set"
+     },
+     {
+      "desc": "Surgical ward bed, per day",
+      "code": "ADM-DAY",
+      "units": 2,
+      "unitPrice": 3100,
+      "line": 6200
+     }
+    ],
+    "status": "COMPLETED",
+    "parts": 2
+   },
+   "captures": [
+    {
+     "ms": 1445,
+     "lines": [
+      {
+       "units": 1,
+       "desc": "Emergency department visit, high severity",
+       "unitPrice": 2150,
+       "line": 2150,
+       "code": "99285"
+      },
+      {
+       "line": 4300,
+       "code": "00192",
+       "unitPrice": 4300,
+       "desc": "Anesthesia, radical surgery of facial bones",
+       "units": 1
+      },
+      {
+       "units": 1,
+       "desc": "Open treatment, complicated mandibular fracture, multiple approaches",
+       "code": "21470",
+       "line": 27400,
+       "unitPrice": 27400
+      },
+      {
+       "desc": "Operating room time, per hour",
+       "line": 20800,
+       "units": 4,
+       "unitPrice": 5200,
+       "code": "OR-HR"
+      },
+      {
+       "units": 1,
+       "code": "IMPL-FIX",
+       "desc": "Fixation plates and screws, implant set",
+       "unitPrice": 6100,
+       "line": 6100
+      }
+     ],
+     "id": "25887581915951641",
+     "amount": "60750.00",
+     "stage": "procedure",
+     "final": false,
+     "status": "COMPLETED"
+    },
+    {
+     "final": true,
+     "status": "COMPLETED",
+     "ms": 2253,
+     "lines": [
+      {
+       "desc": "Surgical ward bed, per day",
+       "units": 2,
+       "unitPrice": 3100,
+       "code": "ADM-DAY",
+       "line": 6200
+      }
+     ],
+     "amount": "6200.00",
+     "stage": "discharge",
+     "id": "3UV76060UJ098143K"
+    }
+   ],
+   "created": "2026-10-02T02:25:27.986Z",
+   "state": "captured",
+   "events": [
+    {
+     "type": "presented",
+     "t": "2026-10-02T02:25:27.986Z",
+     "text": "Patient D.W., 31 (fictional) presented to St. Aldric Regional Medical Center. ED physician documented the emergency condition and requested Oral and maxillofacial surgery."
+    },
+    {
+     "text": "Guarantee sized at $84,007.50 from 6 published price lines plus 15% contingency by the sizing agent (4 tool calls over 2 turns) in 6269 ms.",
+     "t": "2026-10-02T02:25:34.352Z",
+     "type": "sized"
+    },
+    {
+     "t": "2026-10-02T02:25:37.428Z",
+     "type": "authorized",
+     "text": "Guarantee of $84,007.50 authorized on Harbor Mutual Aid Fund's vaulted instrument in 2076 ms. PayPal authorization 0G711927D7510084Y. Funds guaranteed by PayPal for 3 days (to 2026-10-05), authorization valid to 2026-10-31. Hospital notified of honoured commitment."
+    },
+    {
+     "t": "2026-10-02T02:25:37.832Z",
+     "text": "On-call specialist contacted: Dr. S. Lindqvist, on-call oral and maxillofacial surgeon (fictional). Honoured guarantee 0G711927D7510084Y of $84,007.50 shared with the request.",
+     "type": "oncall_contacted"
+    },
+    {
+     "t": "2026-10-02T02:25:37.832Z",
+     "text": "Dr. S. Lindqvist, on-call oral and maxillofacial surgeon (fictional) responded: \"Accepts. Booking the OR for first available slot tonight.\" (scripted demo response)",
+     "type": "oncall_response"
+    },
+    {
+     "text": "Procedure documented: Open reduction and internal fixation of bilateral mandible fractures completed. Admitted to the surgical ward. Procedure lines total $60,750.00.",
+     "type": "documented",
+     "t": "2026-10-02T02:25:38.212Z"
+    },
+    {
+     "t": "2026-10-02T02:25:40.084Z",
+     "type": "partially_captured",
+     "text": "Partial capture 25887581915951641 for $60,750.00 (not final). $23,257.50 of the hold remains open for the inpatient stay."
+    },
+    {
+     "text": "Discharge documented. Inpatient stay lines total $6,200.00.",
+     "t": "2026-10-02T02:25:40.492Z",
+     "type": "documented"
+    },
+    {
+     "text": "Final capture 3UV76060UJ098143K for $6,200.00. Total charged $66,950.00; the unused $17,057.50 of the hold is released to the sponsor.",
+     "t": "2026-10-02T02:25:43.220Z",
+     "type": "captured"
+    }
+   ],
+   "sponsorId": "fund-1",
+   "auth": {
+    "expires": "2026-10-31T02:25:36Z",
+    "ms": 2076,
+    "status": "PARTIALLY_CAPTURED",
+    "orderId": "3FE64751SE8262336",
+    "authId": "0G711927D7510084Y",
+    "amount": "84007.50",
+    "reauths": [],
+    "created": "2026-10-02T02:25:36Z",
+    "honorUntil": "2026-10-05T02:25:36.000Z"
+   },
+   "requests": [
+    {
+     "id": "hf-a481a45d-auth",
+     "t": "2026-10-02T02:25:35.352Z",
+     "op": "authorize"
+    },
+    {
+     "t": "2026-10-02T02:25:38.638Z",
+     "op": "capture-procedure",
+     "id": "hf-a481a45d-capture-procedure-0"
+    },
+    {
+     "op": "capture-discharge",
+     "id": "hf-a481a45d-capture-discharge-0",
+     "t": "2026-10-02T02:25:40.966Z"
+    }
+   ],
+   "audit": {
+    "text": "On 2026-10-02T02:25:27.986Z, patient D.W. presented to St. Aldric Regional Medical Center and the ED physician requested Oral and maxillofacial surgery. A financial guarantee of $84,007.50 was authorized at 2026-10-02T02:25:37.428Z under PayPal authorization 0G711927D7510084Y, valid through 2026-10-05 for funds guarantee and 2026-10-31 for authorization, and the hospital was notified of the honored commitment. At 2026-10-02T02:25:37.832Z, on-call oral and maxillofacial surgeon Dr. S. Lindqvist was contacted with the guarantee information and responded \"Accepts. Booking the OR for first available slot tonight.\" A partial capture of $60,750.00 occurred at 2026-10-02T02:25:40.084Z and a final capture of $6,200.00 occurred at 2026-10-02T02:25:43.220Z, totaling $66,950.00 charged against the guarantee, with $17,057.50 released unused to the sponsor.",
+    "source": "bedrock",
+    "ms": 5943,
+    "key": 9
+   }
+  },
+  "transfer": {
+   "mode": "hold",
+   "patient": "L.T., 44 (fictional)",
+   "captures": [],
+   "hospital": "St. Aldric Regional Medical Center",
+   "id": "9dfd0034",
+   "auth": {
+    "honorUntil": "2026-10-05T02:25:58.000Z",
+    "status": "CREATED",
+    "orderId": "53N67798R6943291X",
+    "ms": 2072,
+    "authId": "2XW90605KP847222X",
+    "amount": "85594.50",
+    "created": "2026-10-02T02:25:58Z",
+    "expires": "2026-10-31T02:25:58Z",
+    "reauths": []
+   },
+   "sponsorName": "Harbor Mutual Aid Fund",
+   "scenarioId": "transfer",
+   "created": "2026-10-02T02:25:50.622Z",
+   "sponsorId": "fund-1",
+   "sizing": {
+    "amount": "85594.50",
+    "error": null,
+    "contingencyPct": 15,
+    "subtotal": "74430.00",
+    "source": "agent",
+    "balance": {
+     "openHolds": "0.00",
+     "pledge": 1000000
+    },
+    "agent": {
+     "turns": 2,
+     "stop": "done",
+     "toolCalls": 4,
+     "trace": [
+      {
+       "input": {
+        "query": "all"
+       },
+       "output": {
+        "truncated": "{\"matches\":[{\"code\":\"99285\",\"description\":\"Emergency department visit, high severity\",\"per\":\"visit\",\"standard_charge_usd\":2150},{\"code\":\"00350\",\"description\":\"Anesthesia, major vessels of neck\",\"per\":\"case\",\"standard_charge_usd\":4800},{\"code\":\"35701\",\"description\":\"Exploration of artery, neck, without repair\",\"per\":\"procedure\",\"standard_charge_usd\":14200},{\"code\":\"35201\",\"description\":\"Direct repair of blood vessel, neck\",\"per\":\"procedure\",\"standard_charge_usd\":21900},{\"code\":\"21470\",\"description\":\"Open treatment, complicated mandibular fracture, multiple approaches\",\"per\":\"procedure\",\"standard_charge_usd\":27400},{\"code\":\"21462\",\"description\":\"Open treatment, mandibular fracture, with interd…"
+       },
+       "turn": 1,
+       "name": "get_price_record",
+       "kind": "tool",
+       "ok": true,
+       "ms": 0
+      },
+      {
+       "kind": "tool",
+       "output": {
+        "truncated": "{\"found\":true,\"bundle\":\"ortho\",\"lines\":[{\"code\":\"99285\",\"min_units\":1,\"max_units\":1,\"description\":\"Emergency department visit, high severity\"},{\"code\":\"01230\",\"min_units\":1,\"max_units\":1,\"description\":\"Anesthesia, open procedure on upper leg bones\"},{\"code\":\"27506\",\"min_units\":1,\"max_units\":1,\"description\":\"Intramedullary nailing, femoral shaft fracture\"},{\"code\":\"IMPL-NAIL\",\"min_units\":1,\"max_units\":1,\"description\":\"Intramedullary nail implant\"},{\"code\":\"OR-HR\",\"min_units\":2,\"max_units\":4,\"description\":\"Operating room time, per hour\"},{\"code\":\"BLOOD-U\",\"min_units\":0,\"max_units\":4,\"description\":\"Blood product, per unit\"},{\"code\":\"ADM-DAY\",\"min_units\":2,\"max_units\":5,\"description\":\"Surgical w…"
+       },
+       "ms": 1,
+       "name": "lookup_procedure_bundle",
+       "turn": 1,
+       "ok": true,
+       "input": {
+        "specialty": "Orthopaedic surgery",
+        "procedure": "open femoral shaft fracture"
+       }
+      },
+      {
+       "kind": "tool",
+       "ms": 0,
+       "name": "check_sponsor_balance",
+       "ok": true,
+       "output": {
+        "per_case_limit_usd": 120000,
+        "pledge_usd": 1000000,
+        "remaining_usd": "1000000.00",
+        "open_holds_usd": "0.00",
+        "sponsor": "Harbor Mutual Aid Fund"
+       },
+       "turn": 1,
+       "input": {
+        "sponsor_id": "fund-1"
+       }
+      },
+      {
+       "kind": "tool",
+       "input": {
+        "contingency_pct": 15,
+        "rationale": "ED evaluation, anesthesia, open femoral fracture repair with nail, OR time, blood products, 48-hour ICU/ward care before transfer to Level I center.",
+        "lines": [
+         {
+          "units": 1,
+          "code": "99285"
+         },
+         {
+          "code": "01230",
+          "units": 1
+         },
+         {
+          "units": 1,
+          "code": "27506"
+         },
+         {
+          "units": 1,
+          "code": "IMPL-NAIL"
+         },
+         {
+          "units": 3,
+          "code": "OR-HR"
+         },
+         {
+          "code": "BLOOD-U",
+          "units": 2
+         },
+         {
+          "units": 2,
+          "code": "ICU-DAY"
+         },
+         {
+          "code": "ADM-DAY",
+          "units": 1
+         }
+        ]
+       },
+       "ok": true,
+       "output": {
+        "total_usd": "85594.50",
+        "issues": [],
+        "contingency_pct": 15,
+        "subtotal_usd": "74430.00",
+        "ok": true
+       },
+       "ms": 0,
+       "turn": 2,
+       "name": "propose_guarantee"
+      }
+     ]
+    },
+    "lines": [
+     {
+      "code": "99285",
+      "units": 1,
+      "desc": "Emergency department visit, high severity",
+      "line": 2150,
+      "unitPrice": 2150
+     },
+     {
+      "units": 1,
+      "unitPrice": 3900,
+      "code": "01230",
+      "line": 3900,
+      "desc": "Anesthesia, open procedure on upper leg bones"
+     },
+     {
+      "line": 23800,
+      "desc": "Intramedullary nailing, femoral shaft fracture",
+      "units": 1,
+      "code": "27506",
+      "unitPrice": 23800
+     },
+     {
+      "units": 1,
+      "line": 8800,
+      "code": "IMPL-NAIL",
+      "desc": "Intramedullary nail implant",
+      "unitPrice": 8800
+     },
+     {
+      "code": "OR-HR",
+      "desc": "Operating room time, per hour",
+      "unitPrice": 5200,
+      "units": 3,
+      "line": 15600
+     },
+     {
+      "unitPrice": 640,
+      "desc": "Blood product, per unit",
+      "code": "BLOOD-U",
+      "line": 1280,
+      "units": 2
+     },
+     {
+      "unitPrice": 7900,
+      "code": "ICU-DAY",
+      "units": 2,
+      "line": 15800,
+      "desc": "Intensive care bed, per day"
+     },
+     {
+      "unitPrice": 3100,
+      "code": "ADM-DAY",
+      "units": 1,
+      "line": 3100,
+      "desc": "Surgical ward bed, per day"
+     }
+    ],
+    "model": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+    "rationale": "ED evaluation, anesthesia, open femoral fracture repair with nail, OR time, blood products, 48-hour ICU/ward care before transfer to Level I center.",
+    "ms": 5967
+   },
+   "void": {
+    "released": "85594.50",
+    "ms": 881
+   },
+   "events": [
+    {
+     "text": "Patient L.T., 44 (fictional) presented to St. Aldric Regional Medical Center. ED physician documented the emergency condition and requested Orthopaedic surgery.",
+     "type": "presented",
+     "t": "2026-10-02T02:25:50.622Z"
+    },
+    {
+     "type": "sized",
+     "text": "Guarantee sized at $85,594.50 from 8 published price lines plus 15% contingency by the sizing agent (4 tool calls over 2 turns) in 5967 ms.",
+     "t": "2026-10-02T02:25:56.615Z"
+    },
+    {
+     "type": "authorized",
+     "t": "2026-10-02T02:25:59.604Z",
+     "text": "Guarantee of $85,594.50 authorized on Harbor Mutual Aid Fund's vaulted instrument in 2072 ms. PayPal authorization 2XW90605KP847222X. Funds guaranteed by PayPal for 3 days (to 2026-10-05), authorization valid to 2026-10-31. Hospital notified of honoured commitment."
+    },
+    {
+     "text": "On-call specialist contacted: Dr. P. Anand, on-call orthopaedic surgeon (fictional). Honoured guarantee 2XW90605KP847222X of $85,594.50 shared with the request.",
+     "t": "2026-10-02T02:25:59.932Z",
+     "type": "oncall_contacted"
+    },
+    {
+     "t": "2026-10-02T02:25:59.932Z",
+     "type": "oncall_response",
+     "text": "Dr. P. Anand, on-call orthopaedic surgeon (fictional) responded: \"Accepts. Preparing the OR while the transfer is confirmed.\" (scripted demo response)"
+    },
+    {
+     "text": "Procedure not performed. Patient transferred to a Level I trauma center by physician decision before incision.",
+     "t": "2026-10-02T02:26:00.279Z",
+     "type": "not_performed"
+    },
+    {
+     "t": "2026-10-02T02:26:01.161Z",
+     "text": "Authorization 2XW90605KP847222X voided. Sponsor charged $0.00 in total; $85,594.50 of hold released.",
+     "type": "voided"
+    }
+   ],
+   "state": "voided",
+   "requests": [
+    {
+     "t": "2026-10-02T02:25:57.532Z",
+     "id": "hf-9dfd0034-auth",
+     "op": "authorize"
+    },
+    {
+     "id": "hf-9dfd0034-void",
+     "t": "2026-10-02T02:26:00.279Z",
+     "op": "void"
+    }
+   ],
+   "audit": {
+    "text": "On 2026-10-02T02:25:50.622Z, patient L.T. presented to St. Aldric Regional Medical Center and the ED physician documented the emergency condition and requested Orthopaedic surgery. At 2026-10-02T02:25:59.604Z, a financial guarantee of $85,594.50 was authorized on Harbor Mutual Aid Fund's vaulted instrument under PayPal authorization 2XW90605KP847222X, valid through 2026-10-31 with funds guaranteed for three days. At 2026-10-02T02:25:59.932Z, Dr. P. Anand, the on-call orthopaedic surgeon, was contacted with the honoured guarantee and responded \"Accepts. Preparing the OR while the transfer is confirmed.\" At 2026-10-02T02:26:00.279Z, the procedure was not performed because the patient was transferred to a Level I trauma center by physician decision before incision. At 2026-10-02T02:26:01.161Z, authorization 2XW90605KP847222X was voided with $0.00 charged and $85,594.50 of hold released.",
+    "source": "bedrock",
+    "ms": 4809,
+    "key": 7
+   }
+  }
+ },
+ "reconstruct": {
+  "entries": [
+   {
+    "id": "E1",
+    "source": "EHR triage",
+    "time": "2026-03-14T02:02:00-05:00",
+    "kind": "clinical",
+    "text": "Arrived by ambulance. Expanding neck swelling, voice changing. Airway narrowing noted.",
+    "outOfOrder": true,
+    "secondHand": false
+   },
+   {
+    "id": "E2",
+    "source": "ED physician note",
+    "time": "2026-03-14T02:09:00-05:00",
+    "kind": "clinical",
+    "text": "Vascular surgery consult requested.",
+    "outOfOrder": true,
+    "secondHand": false
+   },
+   {
+    "id": "E3",
+    "source": "Pager log",
+    "time": "2026-03-14T02:11:00-05:00",
+    "kind": "contact",
+    "person": "Dr. Okafor",
+    "direction": "outbound",
+    "text": "Page sent to on-call vascular surgeon. Delivered.",
+    "outOfOrder": true,
+    "secondHand": false
+   },
+   {
+    "id": "E4",
+    "source": "Phone log",
+    "time": "2026-03-14T02:14:00-05:00",
+    "kind": "contact",
+    "person": "Dr. Okafor",
+    "direction": "outbound",
+    "text": "Call placed. No answer.",
+    "outOfOrder": true,
+    "secondHand": false
+   },
+   {
+    "id": "E5",
+    "source": "Pager log",
+    "time": "2026-03-14T02:26:00-05:00",
+    "kind": "contact",
+    "person": "Dr. Okafor",
+    "direction": "outbound",
+    "text": "Page re-sent. Delivered.",
+    "outOfOrder": true,
+    "secondHand": false
+   },
+   {
+    "id": "E6",
+    "source": "Switchboard",
+    "time": "2026-03-14T03:40:00-05:00",
+    "kind": "contact",
+    "person": "Dr. Okafor",
+    "direction": "inbound",
+    "text": "Dr. Okafor returned call; connected to ED physician.",
+    "outOfOrder": true,
+    "secondHand": false
+   },
+   {
+    "id": "E7",
+    "source": "ED physician note",
+    "time": "2026-03-14T03:45:00-05:00",
+    "kind": "note",
+    "text": "Per Dr. Okafor on the phone, will not come in tonight. Arranging backup surgeon.",
+    "outOfOrder": false,
+    "secondHand": true
+   },
+   {
+    "id": "E9",
+    "source": "OR board",
+    "time": "2026-03-14T03:52:00-05:00",
+    "kind": "clinical",
+    "text": "Patient to OR with Dr. Reyes (backup vascular).",
+    "outOfOrder": false,
+    "secondHand": false
+   }
+  ],
+  "unplaceable": [
+   {
+    "id": "E8",
+    "source": "Nurse recollection, written later",
+    "time": null,
+    "kind": "note",
+    "text": "I think someone called the other surgeon around three? Not sure who."
+   }
+  ],
+  "gaps": [
+   {
+    "from": "E5",
+    "to": "E6",
+    "fromTime": "02:26",
+    "toTime": "03:40",
+    "minutes": 74
+   }
+  ],
+  "repeated": [
+   {
+    "person": "Dr. Okafor",
+    "outboundAttempts": [
+     {
+      "id": "E3",
+      "time": "02:11",
+      "via": "Pager log"
+     },
+     {
+      "id": "E4",
+      "time": "02:14",
+      "via": "Phone log"
+     },
+     {
+      "id": "E5",
+      "time": "02:26",
+      "via": "Pager log"
+     }
+    ],
+    "inbound": [
+     {
+      "id": "E6",
+      "time": "03:40"
+     }
+    ]
+   }
+  ],
+  "findings": [
+   {
+    "kind": "out_of_order",
+    "summary": "Entries E1, E2, E3, E4, E5, and E6 were logged in non-chronological order based on their timestamps.",
+    "entry_ids": [
+     "E1",
+     "E2",
+     "E3",
+     "E4",
+     "E5",
+     "E6"
+    ]
+   },
+   {
+    "kind": "repeated_contact",
+    "summary": "Three outbound contact attempts to Dr. Okafor at 02:11, 02:14, and 02:26 before inbound response at 03:40.",
+    "entry_ids": [
+     "E3",
+     "E4",
+     "E5",
+     "E6"
+    ]
+   },
+   {
+    "kind": "unlogged_gap",
+    "summary": "74-minute unlogged gap between 02:26 and 03:40.",
+    "entry_ids": [
+     "E5",
+     "E6"
+    ]
+   },
+   {
+    "kind": "unplaceable",
+    "summary": "Entry E8 has no timestamp and cannot be placed in timeline.",
+    "entry_ids": [
+     "E8"
+    ]
+   },
+   {
+    "kind": "second_hand",
+    "summary": "Entry E7 contains second-hand statement about Dr. Okafor's decision relayed by phone.",
+    "entry_ids": [
+     "E7"
+    ]
+   },
+   {
+    "kind": "second_hand",
+    "summary": "Entry E8 is uncertain recollection written later about possible contact with another surgeon.",
+    "entry_ids": [
+     "E8"
+    ]
+   }
+  ],
+  "record": {
+   "narrative": "The patient arrived by ambulance at 02:02 with expanding neck swelling, voice changes, and airway narrowing. A vascular surgery consult was requested at 02:09. Staff paged the on-call vascular surgeon Dr. Okafor at 02:11, called with no answer at 02:14, and re-paged at 02:26. Dr. Okafor returned the call at 03:40 and was connected to the ED physician. At 03:45 the ED physician documented that Dr. Okafor stated by phone he would not come in that night and that a backup surgeon was being arranged. The patient went to the OR with Dr. Reyes (backup vascular) at 03:52.",
+   "notRecorded": [
+    "What occurred between 02:26 and 03:40",
+    "When or how Dr. Reyes was contacted",
+    "Who contacted Dr. Reyes",
+    "Clinical interventions or monitoring during the wait",
+    "Reason Dr. Okafor declined to come in"
+   ]
+  },
+  "source": "agent",
+  "error": null,
+  "ms": 15633,
+  "model": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+  "agent": {
+   "turns": 3,
+   "stop": "done",
+   "toolCalls": 9,
+   "trace": [
+    {
+     "turn": 1,
+     "kind": "model",
+     "text": "I'll help you reconstruct the access-to-care record from the hospital log. Let me start by retrieving and analyzing the entries.",
+     "ms": 1853
+    },
+    {
+     "turn": 1,
+     "kind": "tool",
+     "name": "list_entries",
+     "input": {},
+     "output": {
+      "truncated": "{\"entries\":[{\"id\":\"E7\",\"source\":\"ED physician note\",\"time\":\"2026-03-14T03:45:00-05:00\",\"kind\":\"note\",\"text\":\"Per Dr. Okafor on the phone, will not come in tonight. Arranging backup surgeon.\"},{\"id\":\"E1\",\"source\":\"EHR triage\",\"time\":\"2026-03-14T02:02:00-05:00\",\"kind\":\"clinical\",\"text\":\"Arrived by ambulance. Expanding neck swelling, voice changing. Airway narrowing noted.\"},{\"id\":\"E3\",\"source\":\"Pager log\",\"time\":\"2026-03-14T02:11:00-05:00\",\"kind\":\"contact\",\"person\":\"Dr. Okafor\",\"direction\":\"outbound\",\"text\":\"Page sent to on-call vascular surgeon. Delivered.\"},{\"id\":\"E2\",\"source\":\"ED physician note\",\"time\":\"2026-03-14T02:09:00-05:00\",\"kind\":\"clinical\",\"text\":\"Vascular surgery consult requested.…"
+     },
+     "ok": true,
+     "ms": 0
+    },
+    {
+     "turn": 1,
+     "kind": "tool",
+     "name": "analyse_timeline",
+     "input": {},
+     "output": {
+      "truncated": "{\"chronological\":[\"E1 02:02 EHR triage\",\"E2 02:09 ED physician note\",\"E3 02:11 Pager log\",\"E4 02:14 Phone log\",\"E5 02:26 Pager log\",\"E6 03:40 Switchboard\",\"E7 03:45 ED physician note\",\"E9 03:52 OR board\"],\"out_of_order_ids\":[\"E1\",\"E3\",\"E2\",\"E4\",\"E5\",\"E6\"],\"unplaceable\":[{\"id\":\"E8\",\"source\":\"Nurse recollection, written later\",\"text\":\"I think someone called the other surgeon around three? Not sure who.\"}],\"gaps\":[{\"from\":\"E5\",\"to\":\"E6\",\"fromTime\":\"02:26\",\"toTime\":\"03:40\",\"minutes\":74}],\"repeated_contacts\":[{\"person\":\"Dr. Okafor\",\"outboundAttempts\":[{\"id\":\"E3\",\"time\":\"02:11\",\"via\":\"Pager log\"},{\"id\":\"E4\",\"time\":\"02:14\",\"via\":\"Phone log\"},{\"id\":\"E5\",\"time\":\"02:26\",\"via\":\"Pager log\"}],\"inbound\":[…"
+     },
+     "ok": true,
+     "ms": 0
+    },
+    {
+     "turn": 2,
+     "kind": "model",
+     "text": "Now I'll record each finding identified in the analysis:",
+     "ms": 7917
+    },
+    {
+     "turn": 2,
+     "kind": "tool",
+     "name": "record_finding",
+     "input": {
+      "kind": "out_of_order",
+      "summary": "Entries E1, E2, E3, E4, E5, and E6 were logged in non-chronological order based on their timestamps.",
+      "entry_ids": [
+       "E1",
+       "E2",
+       "E3",
+       "E4",
+       "E5",
+       "E6"
+      ]
+     },
+     "output": {
+      "recorded": 1
+     },
+     "ok": true,
+     "ms": 1
+    },
+    {
+     "turn": 2,
+     "kind": "tool",
+     "name": "record_finding",
+     "input": {
+      "kind": "repeated_contact",
+      "summary": "Three outbound contact attempts to Dr. Okafor at 02:11, 02:14, and 02:26 before inbound response at 03:40.",
+      "entry_ids": [
+       "E3",
+       "E4",
+       "E5",
+       "E6"
+      ]
+     },
+     "output": {
+      "recorded": 2
+     },
+     "ok": true,
+     "ms": 0
+    },
+    {
+     "turn": 2,
+     "kind": "tool",
+     "name": "record_finding",
+     "input": {
+      "kind": "unlogged_gap",
+      "summary": "74-minute unlogged gap between 02:26 and 03:40.",
+      "entry_ids": [
+       "E5",
+       "E6"
+      ]
+     },
+     "output": {
+      "recorded": 3
+     },
+     "ok": true,
+     "ms": 0
+    },
+    {
+     "turn": 2,
+     "kind": "tool",
+     "name": "record_finding",
+     "input": {
+      "kind": "unplaceable",
+      "summary": "Entry E8 has no timestamp and cannot be placed in timeline.",
+      "entry_ids": [
+       "E8"
+      ]
+     },
+     "output": {
+      "recorded": 4
+     },
+     "ok": true,
+     "ms": 0
+    },
+    {
+     "turn": 2,
+     "kind": "tool",
+     "name": "record_finding",
+     "input": {
+      "kind": "second_hand",
+      "summary": "Entry E7 contains second-hand statement about Dr. Okafor's decision relayed by phone.",
+      "entry_ids": [
+       "E7"
+      ]
+     },
+     "output": {
+      "recorded": 5
+     },
+     "ok": true,
+     "ms": 0
+    },
+    {
+     "turn": 2,
+     "kind": "tool",
+     "name": "record_finding",
+     "input": {
+      "kind": "second_hand",
+      "summary": "Entry E8 is uncertain recollection written later about possible contact with another surgeon.",
+      "entry_ids": [
+       "E8"
+      ]
+     },
+     "output": {
+      "recorded": 6
+     },
+     "ok": true,
+     "ms": 0
+    },
+    {
+     "turn": 3,
+     "kind": "model",
+     "text": "Now I'll write the final access-to-care record:",
+     "ms": 5861
+    },
+    {
+     "turn": 3,
+     "kind": "tool",
+     "name": "write_record",
+     "input": {
+      "narrative": "The patient arrived by ambulance at 02:02 with expanding neck swelling, voice changes, and airway narrowing. A vascular surgery consult was requested at 02:09. Staff paged the on-call vascular surgeon Dr. Okafor at 02:11, called with no answer at 02:14, and re-paged at 02:26. Dr. Okafor returned the call at 03:40 and was connected to the ED physician. At 03:45 the ED physician documented that Dr. Okafor stated by phone he would not come in that night and that a backup surgeon was being arranged. The patient went to the OR with Dr. Reyes (backup vascular) at 03:52.",
+      "not_recorded": [
+       "What occurred between 02:26 and 03:40",
+       "When or how Dr. Reyes was contacted",
+       "Who contacted Dr. Reyes",
+       "Clinical interventions or monitoring during the wait",
+       "Reason Dr. Okafor declined to come in"
+      ]
+     },
+     "output": {
+      "accepted": true
+     },
+     "ok": true,
+     "ms": 0
+    }
+   ]
+  }
+ }
+}
